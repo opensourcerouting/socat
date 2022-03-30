@@ -76,6 +76,7 @@ enum e_types {
 #if HAVE_STRUCT_IP_MREQ_SOURCE
    TYPE_IP_MREQ_SOURCE,	/* for  struct ip_mreq_source */
 #endif
+   TYPE_GROUP_SOURCE_REQ,
 
    TYPE_GENERIC, 	/* type is determined from (text) data provided (dalan syntax) */
 } ;
@@ -361,6 +362,7 @@ enum e_optcode {
    OPT_IPV6_HOPLIMIT,
    OPT_IPV6_HOPOPTS,
    OPT_IPV6_JOIN_GROUP,
+   OPT_IPV6_JOIN_GROUP_SOURCE,
    OPT_IPV6_PKTINFO,
    OPT_IPV6_RECVDSTOPTS,
    OPT_IPV6_RECVERR,

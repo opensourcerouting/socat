@@ -785,6 +785,7 @@ const struct optname optionnames[] = {
 	IF_IP     ("ipttl",	&opt_ip_ttl)
 #ifdef IPV6_JOIN_GROUP
 	IF_IP6    ("ipv6-add-membership",	&opt_ipv6_join_group)
+	IF_IP6    ("ipv6-add-source-membership",	&opt_ipv6_join_group_source)
 #endif
 #ifdef IPV6_AUTHHDR
 	IF_IP6    ("ipv6-authhdr",	&opt_ipv6_authhdr)
@@ -803,6 +804,7 @@ const struct optname optionnames[] = {
 #endif
 #ifdef IPV6_JOIN_GROUP
 	IF_IP6    ("ipv6-join-group",	&opt_ipv6_join_group)
+	IF_IP6    ("ipv6-join-group-source",	&opt_ipv6_join_group_source)
 #endif
 #ifdef IPV6_PKTINFO
 	IF_IP6    ("ipv6-pktinfo",	&opt_ipv6_pktinfo)
@@ -2513,6 +2515,10 @@ int parseopts_table(const char **a, unsigned int groups, struct opt **opts,
 	 break;
 #endif
 
+      case TYPE_GROUP_SOURCE_REQ:
+	 xiotype_ip6_add_source_membership(token, ent, opt);
+	 break;
+
 #if WITH_IP4
       case TYPE_IP4NAME:
 	 {
@@ -3345,6 +3351,9 @@ int applyopts(int fd, struct opt *opts, enum e_phase phase) {
 	    case TYPE_IP_MREQN:
 	       /* handled in applyopts_single */
 	       ++opt; continue;
+	    case TYPE_GROUP_SOURCE_REQ:
+	       /* handled in applyopts_single */
+	       ++opt; continue;
 #endif /* defined(HAVE_STRUCT_IP_MREQ) || defined (HAVE_STRUCT_IP_MREQN) */
 
 	       /*! still many types missing; implement on demand */
@@ -4127,6 +4136,13 @@ mc:addr
 	       }
 	    }
 	   break;
+
+	 case OPT_IPV6_JOIN_GROUP_SOURCE:
+	    if (xioapply_ip6_add_source_membership(xfd, opt) < 0) {
+	       continue;
+	    }
+	   break;
+
 #endif /* WITH_IP6 && defined(HAVE_STRUCT_IPV6_MREQ) */
 	default:
 	   /* ignore here */

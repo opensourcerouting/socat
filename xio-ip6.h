@@ -13,6 +13,7 @@
 
 extern const struct optdesc opt_ipv6_v6only;
 extern const struct optdesc opt_ipv6_join_group;
+extern const struct optdesc opt_ipv6_join_group_source;
 extern const struct optdesc opt_ipv6_pktinfo;
 extern const struct optdesc opt_ipv6_recvpktinfo;
 extern const struct optdesc opt_ipv6_rthdr;
@@ -48,6 +49,9 @@ extern int
 xiosetsockaddrenv_ip6(int idx, char *namebuff, size_t namelen,
 		      char *valuebuff, size_t valuelen,
 		      struct sockaddr_in6 *sa, int ipproto);
+
+extern int xiotype_ip6_add_source_membership(char* token, const struct optname *ent, struct opt *opt);
+extern int xioapply_ip6_add_source_membership(struct single *xfd, struct opt *opt);
 
 #endif /* WITH_IP6 */
 
