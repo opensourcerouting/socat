@@ -23,6 +23,7 @@ extern const struct optdesc opt_ipv6_dstopts;
 extern const struct optdesc opt_ipv6_recvdstopts;
 extern const struct optdesc opt_ipv6_hopopts;
 extern const struct optdesc opt_ipv6_unicast_hops;
+extern const struct optdesc opt_ipv6_multicast_hops;
 extern const struct optdesc opt_ipv6_recvhopopts;
 extern const struct optdesc opt_ipv6_flowinfo;
 extern const struct optdesc opt_ipv6_hoplimit;

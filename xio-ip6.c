@@ -62,6 +62,9 @@ const struct optdesc opt_ipv6_flowinfo= { "ipv6-flowinfo","flowinfo",OPT_IPV6_FL
 const struct optdesc opt_ipv6_hoplimit= { "ipv6-hoplimit","hoplimit",OPT_IPV6_HOPLIMIT,GROUP_SOCK_IP6, PH_PASTSOCKET, TYPE_INT, OFUNC_SOCKOPT, SOL_IPV6, IPV6_HOPLIMIT };
 #endif
 const struct optdesc opt_ipv6_unicast_hops= { "ipv6-unicast-hops","unicast-hops",OPT_IPV6_UNICAST_HOPS,GROUP_SOCK_IP6, PH_PASTSOCKET, TYPE_INT, OFUNC_SOCKOPT, SOL_IPV6, IPV6_UNICAST_HOPS };
+#ifdef IPV6_MULTICAST_HOPS
+const struct optdesc opt_ipv6_multicast_hops= { "ipv6-multicast-hops","multicast-hops",OPT_IPV6_MULTICAST_HOPS,GROUP_SOCK_IP6, PH_PASTSOCKET, TYPE_INT, OFUNC_SOCKOPT, SOL_IPV6, IPV6_MULTICAST_HOPS };
+#endif
 #ifdef IPV6_RECVHOPLIMIT
 const struct optdesc opt_ipv6_recvhoplimit= { "ipv6-recvhoplimit","recvhoplimit",OPT_IPV6_RECVHOPLIMIT,GROUP_SOCK_IP6, PH_PASTSOCKET, TYPE_INT, OFUNC_SOCKOPT, SOL_IPV6, IPV6_RECVHOPLIMIT };
 #endif

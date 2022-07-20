@@ -375,6 +375,7 @@ enum e_optcode {
    OPT_IPV6_RTHDR,
    OPT_IPV6_TCLASS,
    OPT_IPV6_UNICAST_HOPS,
+   OPT_IPV6_MULTICAST_HOPS,
    OPT_IPV6_V6ONLY,
 #if 0	/* see Linux: man 7 netlink; probably not what we need yet */
    OPT_IO_SIOCGIFNAME,

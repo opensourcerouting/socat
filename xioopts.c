@@ -806,6 +806,7 @@ const struct optname optionnames[] = {
 	IF_IP6    ("ipv6-join-group",	&opt_ipv6_join_group)
 	IF_IP6    ("ipv6-join-group-source",	&opt_ipv6_join_group_source)
 #endif
+	IF_IP6    ("ipv6-multicast-hops",	&opt_ipv6_multicast_hops)
 #ifdef IPV6_PKTINFO
 	IF_IP6    ("ipv6-pktinfo",	&opt_ipv6_pktinfo)
 #endif
@@ -957,6 +958,7 @@ const struct optname optionnames[] = {
 	IF_IP     ("mtudiscover",	&opt_ip_mtu_discover)
 #endif
 	IF_TUN    ("multicast",	&opt_iff_multicast)
+	IF_IP6    ("multicast-hops",	&opt_ipv6_multicast_hops)
 	IF_IP     ("multicast-if",	&opt_ip_multicast_if)
 	IF_IP     ("multicast-loop",	&opt_ip_multicast_loop)
 	IF_IP     ("multicast-ttl",	&opt_ip_multicast_ttl)
